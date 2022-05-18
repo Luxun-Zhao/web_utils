@@ -8,7 +8,7 @@ const router = new Router({
     routes: [
         // 动态路径参数 以冒号开头
         { path: '/hello', component: HelloWorld, name:"Hello", icon: "mdi-human-greeting" },
-        { path: '/crypto', component: Crypto, name:"Crypto", icon: "mdi-lock"  }
+        { path: '/crypto', component: Crypto, name:"Crypto", icon: "mdi-lock" },
     ]
 })
 
