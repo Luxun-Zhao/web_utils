@@ -22,7 +22,16 @@
       >
         <template v-slot:activator>
           <v-list-item-content>
-            <v-list-item-title v-text="app.name"></v-list-item-title>
+            <v-list-item>
+              <div>{{app.name}}</div>
+              <v-spacer></v-spacer>
+              <v-btn
+                  style="width: 100px"
+                  @click="open(app.name)"
+              >
+                open
+              </v-btn>
+            </v-list-item>
           </v-list-item-content>
         </template>
 
@@ -76,7 +85,6 @@ export default {
       let app = {items:[]}
       let item = {}
       this.passwordData.split('\n').forEach(s=>{
-        console.log(typeList, type, app, item)
         let info = s.split(' ')
         if (info.length !== 2)
           return
@@ -112,6 +120,9 @@ export default {
     }
   },
   methods:{
+    open(url){
+      window.open(url)
+    },
     copyStringToClipboard(string) {
       const el = document.createElement('textarea')
       el.value = string
