@@ -6,7 +6,9 @@
         <v-card-title>
           {{$route.name}}
         </v-card-title>
-        <router-view />
+        <keep-alive>
+          <router-view />
+        </keep-alive>
       </v-card>
     </v-main>
   </v-app>
