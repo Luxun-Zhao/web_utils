@@ -80,8 +80,10 @@ export default {
   },
   watch: {
     count(){
-      if (this.count > 10)
+      if (this.count > 10){
         this.showPassword = true
+        this.decodeStr = localStorage.getItem('decodeStr')
+      }
     }
   },
   methods:{
@@ -96,6 +98,7 @@ export default {
     },
     encode(){
       this.decodeStr = cryptoObj[this.selectedCryptoType].encode(this.raw, this.key)
+      localStorage.setItem('decodeStr', this.decodeStr)
     }
   }
 }
