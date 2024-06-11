@@ -4,6 +4,7 @@
     <v-textarea
         v-model="raw"
         color="teal"
+        v-show="!hideRawText"
     >
       <template v-slot:label>
         <div>原始数据</div>
@@ -28,6 +29,7 @@
         v-model="key"
         type="password"
         v-if="selectedCryptoType && cryptoObj[selectedCryptoType].key"
+        v-show="!hidePassword"
     >
     </v-text-field>
 
@@ -73,7 +75,9 @@ export default {
     ],
     showPassword: false,
     count: 0,
-    cryptoObj
+    cryptoObj,
+    hidePassword: false,
+    hideRawText:false,
   }),
   created(){
     window.c = CryptoJS
@@ -83,6 +87,8 @@ export default {
       if (this.count > 10){
         this.showPassword = true
         this.decodeStr = localStorage.getItem('decodeStr')
+        this.hidePassword = true
+        this.hideRawText = true
       }
     }
   },
